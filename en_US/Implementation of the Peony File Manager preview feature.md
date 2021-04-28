@@ -29,6 +29,21 @@ The  purpose of this project is to provide support and implementation of file pr
 **Optional**
 
   * Qt5, basic
+  * ECMAScript, basic
+
+## Technical Keywords
+
+**Text Data Parser**, **Audio/Video frame process**, **XML Parser**, **ffmpeg**
+
+## Technical Details
+
+The technical focus of the File Manager preview feature is on the breadth of file type support and preview performance.
+
+The breadth of file type support requires special parsing and processing of some of them due to the large number of file types and different data formats in modern operating systems. For performance issues, since large text and long audio and video are common in file manager scenarios, memory consumption and asynchronous issues need to be taken into account when designing their data parsing.
+
+### Complex format document parsing
+
+For documents like PDF, doc/docx, rtf, we want to implement their preview not as images, but as text data so that their content can be quickly selected and copied. In Peony today, PDFs are previewed by generating images via poppler, and there are many libraries like pdf.js in web browsing services that provide text parsing support for such files. Further, you can consider using the node.js ecosystem combined with Qt WebEngine to further do these tasks.
 
 ## Features CheckList
 
@@ -89,6 +104,29 @@ The  purpose of this project is to provide support and implementation of file pr
     | ZIP archive             | application/zip     | &#9744;         |
 
 ## Development Plan
+
+The current implementation of the plugin is divided into several phases.
+
+### Phase 1
+
+One to two weeks, the implementation of the plugin structure, including graphical windows, abstraction of parsing services, etc.
+
+### Phase 2
+
+Parsing and display of basic text files, such as txt, source code, etc.
+
+### Phase 3
+
+Display preview of images, audio.
+
+### Phase 4
+
+Playback of video frames, quick editing of image size and orientation.
+
+### Phase 5
+
+Text parsing of complex documents.
+
 
 ## Contact
 
